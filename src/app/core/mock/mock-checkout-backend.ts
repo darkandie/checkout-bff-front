@@ -54,7 +54,9 @@ export class MockCheckoutBackend {
   constructor(private readonly clock: Clock) {}
 
   preCheckout(request: PreCheckoutRequest): PreCheckoutResponse {
-    const slugs = [...new Set((request.products ?? []).map((item) => item.slug?.trim().toLowerCase()))];
+    const slugs = [
+      ...new Set((request.products ?? []).map((item) => item.slug?.trim().toLowerCase())),
+    ];
     if (slugs.length === 0 || slugs.some((slug) => !slug)) {
       throw mockError('INVALID_REQUEST', null);
     }
@@ -88,7 +90,9 @@ export class MockCheckoutBackend {
       throw mockError('CART_EXPIRED', cart.id);
     }
     const methodName = request.paymentMethod?.name ?? '';
-    const type = MOCK_PAYMENT_METHODS.includes(methodName) ? resolvePaymentMethodType(methodName) : null;
+    const type = MOCK_PAYMENT_METHODS.includes(methodName)
+      ? resolvePaymentMethodType(methodName)
+      : null;
     if (!type) {
       throw mockError('PAYMENT_METHOD_NOT_ALLOWED', cart.id);
     }
@@ -114,7 +118,9 @@ export class MockCheckoutBackend {
     return {
       cartId: cart.id,
       status: 'APROVADO',
-      paidAt: this.clock().toISOString().replace(/\.\d{3}Z$/, 'Z'),
+      paidAt: this.clock()
+        .toISOString()
+        .replace(/\.\d{3}Z$/, 'Z'),
       payment: {
         method: methodName,
         ...(type === 'PIX'

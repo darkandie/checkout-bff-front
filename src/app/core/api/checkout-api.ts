@@ -25,6 +25,8 @@ export class CheckoutApi {
   checkout(request: CheckoutRequest): Observable<CheckoutResponse> {
     return this.http
       .post<CheckoutResponse>(`${this.baseUrl}/operations/checkout`, request)
-      .pipe(catchError((error: unknown) => throwError(() => toCheckoutError(error, request.cartId))));
+      .pipe(
+        catchError((error: unknown) => throwError(() => toCheckoutError(error, request.cartId))),
+      );
   }
 }

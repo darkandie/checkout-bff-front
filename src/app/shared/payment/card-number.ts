@@ -8,7 +8,23 @@ const BRAND_LABELS: Record<CardBrand, string> = {
   unknown: 'Cartão',
 };
 
-const ELO_PREFIXES = ['4011', '4312', '4389', '4514', '4576', '5041', '5066', '5067', '509', '6277', '6362', '6363', '650', '6516', '6550'];
+const ELO_PREFIXES = [
+  '4011',
+  '4312',
+  '4389',
+  '4514',
+  '4576',
+  '5041',
+  '5066',
+  '5067',
+  '509',
+  '6277',
+  '6362',
+  '6363',
+  '650',
+  '6516',
+  '6550',
+];
 
 export function digitsOnly(value: string): string {
   return value.replace(/\D/g, '');

@@ -21,7 +21,11 @@ export const mockBackendInterceptor: HttpInterceptorFn = (request, next) => {
   const latency = inject(MOCK_LATENCY_MS);
 
   if (request.method === 'POST' && request.url.endsWith('/operations/pre-checkout')) {
-    return respond(() => backend.preCheckout(request.body as PreCheckoutRequest), request.url, latency / 3);
+    return respond(
+      () => backend.preCheckout(request.body as PreCheckoutRequest),
+      request.url,
+      latency / 3,
+    );
   }
   if (request.method === 'POST' && request.url.endsWith('/operations/checkout')) {
     return respond(() => backend.checkout(request.body as CheckoutRequest), request.url, latency);

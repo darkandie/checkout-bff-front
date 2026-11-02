@@ -25,10 +25,7 @@ export function toPaymentMethodChoices(options: PaymentMethodOption[]): PaymentM
 }
 
 export function resolvePaymentMethodType(name: string): PaymentMethodType | null {
-  const normalized = name
-    .normalize('NFD')
-    .replace(/\p{M}/gu, '')
-    .toLowerCase();
+  const normalized = name.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
   if (normalized.includes('pix')) {
     return 'PIX';
   }

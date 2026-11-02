@@ -11,7 +11,10 @@ interface ErrorDefinition {
 }
 
 const RETRY: ErrorAction = { label: 'Tentar novamente', url: 'RETRY' };
-const CHANGE_PAYMENT_METHOD: ErrorAction = { label: 'Trocar meio de pagamento', url: '/checkout/pagamento' };
+const CHANGE_PAYMENT_METHOD: ErrorAction = {
+  label: 'Trocar meio de pagamento',
+  url: '/checkout/pagamento',
+};
 const REVIEW_PAYMENT_DATA: ErrorAction = { label: 'Revisar dados', url: '/checkout/pagamento' };
 const BACK_TO_PLANS: ErrorAction = { label: 'Escolher plano', url: '/planos' };
 const SEE_CONFIRMATION: ErrorAction = { label: 'Ver confirmação', url: '/checkout/sucesso' };
@@ -22,7 +25,8 @@ export const MOCK_ERRORS = {
     displayType: 'BLOCK',
     code: 'P-0001',
     title: 'Não foi possível continuar',
-    description: 'Algumas informações enviadas estão incompletas ou inválidas. Revise os dados e tente novamente.',
+    description:
+      'Algumas informações enviadas estão incompletas ou inválidas. Revise os dados e tente novamente.',
     primaryButton: RETRY,
     secondaryButton: { label: 'Voltar ao pagamento', url: '/checkout/pagamento' },
   },
@@ -40,7 +44,8 @@ export const MOCK_ERRORS = {
     displayType: 'BLOCK',
     code: 'P-2001',
     title: 'Produto indisponível',
-    description: 'Um ou mais produtos escolhidos não estão disponíveis. Escolha outro plano para continuar.',
+    description:
+      'Um ou mais produtos escolhidos não estão disponíveis. Escolha outro plano para continuar.',
     primaryButton: BACK_TO_PLANS,
     secondaryButton: null,
   },
@@ -58,7 +63,8 @@ export const MOCK_ERRORS = {
     displayType: 'BLOCK',
     code: 'P-3002',
     title: 'Carrinho expirado',
-    description: 'O tempo para concluir esta compra acabou. Escolha o plano novamente para continuar.',
+    description:
+      'O tempo para concluir esta compra acabou. Escolha o plano novamente para continuar.',
     primaryButton: BACK_TO_PLANS,
     secondaryButton: null,
   },
@@ -67,7 +73,8 @@ export const MOCK_ERRORS = {
     displayType: 'INTERVENTION',
     code: 'P-4001',
     title: 'Meio de pagamento indisponível',
-    description: 'O meio de pagamento escolhido não está disponível para esta compra. Escolha outra opção.',
+    description:
+      'O meio de pagamento escolhido não está disponível para esta compra. Escolha outra opção.',
     primaryButton: CHANGE_PAYMENT_METHOD,
     secondaryButton: null,
   },
