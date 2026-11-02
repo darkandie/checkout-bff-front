@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { CheckoutFlow } from '../../core/state/checkout-flow';
 import { CheckoutStore } from '../../core/state/checkout.store';
 import { CheckoutStepper } from '../../layout/checkout-stepper';
+import { nextBillingDate } from '../../shared/payment/billing-cycle';
 import { firstName, orderCode, paymentLabel } from '../../shared/payment/payment-labels';
 import { Icon } from '../../shared/ui/icon';
 import { PurchaseCard, PurchaseDetail, PurchaseLine } from './purchase-card';
@@ -52,9 +53,7 @@ export class SuccessPage {
     if (!paidAt) {
       return null;
     }
-    const renewal = new Date(paidAt);
-    renewal.setMonth(renewal.getMonth() + 1);
-    return renewal;
+    return nextBillingDate(new Date(paidAt));
   });
 
   protected startOver(): void {
