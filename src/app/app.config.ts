@@ -12,14 +12,19 @@ import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 import { CHECKOUT_CONFIG } from './core/config/checkout-config';
 import { correlationIdInterceptor } from './core/http/correlation-id.interceptor';
+import { mockBackendInterceptor } from './core/mock/mock-backend.interceptor';
 
 registerLocaleData(localePt);
+
+const interceptors = environment.useMockBackend
+  ? [correlationIdInterceptor, mockBackendInterceptor]
+  : [correlationIdInterceptor];
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withComponentInputBinding()),
-    provideHttpClient(withFetch(), withInterceptors([correlationIdInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors(interceptors)),
     { provide: CHECKOUT_CONFIG, useValue: environment },
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
