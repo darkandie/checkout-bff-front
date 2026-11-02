@@ -20,3 +20,13 @@
     display: none !important;
   }
 }
+
+@layer components {
+  .field {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 transition outline-none placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100;
+  }
+
+  .field-invalid {
+    @apply border-red-400 bg-red-50/40 pr-10 focus:border-red-500 focus:ring-red-100;
+  }
+}
