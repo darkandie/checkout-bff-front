@@ -48,6 +48,38 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "bff": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.bff.ts"
+                }
+              ]
+            },
+            "production-bff": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.bff.ts"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
             }
           },
           "defaultConfiguration": "production"
@@ -60,6 +92,10 @@
             },
             "development": {
               "buildTarget": "checkout-bff-front:build:development"
+            },
+            "bff": {
+              "buildTarget": "checkout-bff-front:build:bff",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
