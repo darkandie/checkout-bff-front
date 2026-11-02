@@ -89,6 +89,7 @@ const COPY_FEEDBACK_MS = 2500;
       </button>
     </div>
   `,
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PixPaymentPanel {

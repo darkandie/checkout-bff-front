@@ -32,6 +32,7 @@ export type NoticeTone = 'danger' | 'warning' | 'info';
       }
     </div>
   `,
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Notice {

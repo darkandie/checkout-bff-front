@@ -50,6 +50,7 @@ interface StepView {
       </ol>
     </nav>
   `,
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckoutStepper {

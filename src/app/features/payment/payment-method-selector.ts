@@ -47,6 +47,7 @@ import { Icon, IconName } from '../../shared/ui/icon';
       </div>
     </fieldset>
   `,
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PaymentMethodSelector {

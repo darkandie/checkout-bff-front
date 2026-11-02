@@ -59,6 +59,7 @@ import { Icon } from '../../shared/ui/icon';
       </span>
     </p>
   `,
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrderSummary {

@@ -54,6 +54,7 @@ const ERROR_MESSAGES: Record<CardField, Record<string, string>> = {
   selector: 'app-card-payment-form',
   imports: [ReactiveFormsModule, CurrencyPipe, Icon],
   templateUrl: './card-payment-form.html',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardPaymentForm {
