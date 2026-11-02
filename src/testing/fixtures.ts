@@ -55,3 +55,7 @@ export function errorResponse(
     },
   };
 }
+
+export function textOf(element: Element | null | undefined): string {
+  return (element?.textContent ?? '').replace(/\s+/g, ' ').trim();
+}
