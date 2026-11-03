@@ -26,7 +26,7 @@ O projeto roda sozinho, **sem precisar do backend**: por padrão ele usa um back
 
 ### Pré-requisito
 
-**[Node.js 22](https://nodejs.org/)** (a versão está no arquivo `.nvmrc`; com `nvm`, basta rodar `nvm use`).
+**[Node.js 24](https://nodejs.org/)** (ou 22.22.3 em diante, mínimo exigido pelo Angular 22). A versão está no arquivo `.nvmrc`; com `nvm`, basta rodar `nvm install` na pasta do projeto.
 
 ### Instalar e subir
 
